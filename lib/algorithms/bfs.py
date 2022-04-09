@@ -13,7 +13,7 @@ def bfs(node: Node, file: DeserializedFile) -> str:
   res = ""
   while queue.empty() == False:
     crt_node = queue.get()
-    visited[crt_node.get_state_as_str()] = True
+    # visited[crt_node.get_state_as_str()] = True
 
     if crt_node.applied_key != None:
       crt_node.applied_key.attempts -= 1
@@ -27,8 +27,8 @@ def bfs(node: Node, file: DeserializedFile) -> str:
       continue
 
     for successor in generate_successors(crt_node, file.keys, file.unfair_key):
-      if visited.get(successor.get_state_as_str()) == True:
-        continue
+      # if visited.get(successor.get_state_as_str()) == True:
+      #   continue
 
       queue.put(successor)
 
