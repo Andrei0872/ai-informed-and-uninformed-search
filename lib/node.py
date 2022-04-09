@@ -86,7 +86,7 @@ def generate_successors(node: Node, keys: List[Key], unfair_key: Tuple[int, int]
 
     successors.append(successor)
 
-  random.shuffle(successors)
+  # random.shuffle(successors)
   return successors
 
 def is_goal_state(node: Node):
