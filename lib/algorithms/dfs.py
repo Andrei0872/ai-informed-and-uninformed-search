@@ -5,15 +5,15 @@ from lib.node import Node, generate_successors, get_path_until_root, is_goal_sta
 
 from queue import LifoQueue
 
-def dfs(node: Node, file: DeserializedFile) -> str:
+def dfs(node: Node, file: DeserializedFile, max_depth = float('inf')) -> str:
   stack = LifoQueue()
   visited = defaultdict()
 
-  stack.put(node)
+  stack.put((node, 0))
 
   res = ""
   while stack.empty() == False:
-    crt_node = stack.get()
+    (crt_node, depth) = stack.get()
     # visited[crt_node.get_state_as_str()] = True
 
     if crt_node.applied_key != None:
@@ -30,12 +30,15 @@ def dfs(node: Node, file: DeserializedFile) -> str:
       res += serialize_path(path) + "\n\n"
       continue
 
+    if depth == max_depth:
+      continue
+
     for successor in generate_successors(crt_node, file.keys, file.unfair_key):
       # if visited.get(successor.get_state_as_str()) == True:
       #   continue
 
-      stack.put(successor)
-  
+      stack.put((successor, depth + 1))
+
   return res
 
 # def dfs(node: Node, file: DeserializedFile, visited) -> str:
