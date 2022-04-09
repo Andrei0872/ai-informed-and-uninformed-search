@@ -1,5 +1,6 @@
 from typing import List, Tuple
 from lib.key import Key
+import random
 
 class Node:
   state: List[int] = []
@@ -88,4 +89,27 @@ def generate_successors(node: Node, keys: List[Key], unfair_key: Tuple[int, int]
   random.shuffle(successors)
   return successors
 
-  return successors
+def is_goal_state(node: Node):
+  return all(map(lambda keyhole_value: keyhole_value == 0, node.state))
+
+def get_path_until_root(node: Node) -> List[Tuple[Node, Key]]:
+  path = []
+
+  while node:
+    path.append((node, node.applied_key))
+
+    node = node.parent
+
+  return path
+
+def serialize_path(path: List[Tuple[Node, Key]]) -> str:
+  res = ""
+  for i in range(len(path) - 1, -1, -1):
+    (parent, applied_key) = path[i]
+
+    if applied_key != None:
+      res += applied_key.value + "\n"
+
+    res += parent.get_state_as_str() + "\n"
+  
+  return res
