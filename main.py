@@ -3,6 +3,7 @@ from collections import defaultdict
 import os
 from typing import List, Tuple
 from lib.algorithms.dfs import dfs
+from lib.algorithms.idfs import incremental_dfs
 from lib.file import DeserializedFile, read_input_files
 
 from lib.key import Key
@@ -65,4 +66,5 @@ if __name__ == "__main__":
   # print(generate_successors(succ, file.keys, file.unfair_key))
 
   # bfs(n, file)
-  dfs(n, file)
+  # dfs(n, file)
+  incremental_dfs(n, file, 5)
