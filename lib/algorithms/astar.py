@@ -1,4 +1,5 @@
 from collections import defaultdict
+from copy import deepcopy
 from functools import cmp_to_key, reduce
 from typing import List, Tuple
 from lib.file import DeserializedFile, filter_out_unusable_keys
@@ -32,19 +33,19 @@ def a_star(start_node: Node, file: DeserializedFile, h_func):
     open_dict[start_node.get_state_as_str()] = None
 
     if is_goal_state(crt_node):
-      # TODO: print cost
       path = get_path_until_root(crt_node)
       print("cost: {}\n".format(crt_node.cost))
       print(serialize_path(path), '\n\n')
-      continue
+      return
 
     # Marking the current node as `closed`.
     expanded_nodes[crt_node.get_state_as_str()] = True
 
-    # if crt_node.applied_key != None:
-    #   crt_node.applied_key.attempts -= 1
+    if crt_node.applied_key != None:
+      crt_node.used_keys[crt_node.applied_key.value] += 1
 
-    # file.keys = filter_out_unusable_keys(file.keys)
+      if crt_node.used_keys[crt_node.applied_key.value] > 3:
+        continue
 
     is_open_modified = False
     for successor in generate_successors(crt_node, file.keys, file.unfair_key):

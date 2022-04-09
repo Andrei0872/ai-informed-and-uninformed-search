@@ -1,3 +1,5 @@
+from collections import defaultdict
+from copy import deepcopy
 from typing import List, Tuple
 from lib.key import Key
 import random
@@ -7,6 +9,7 @@ class Node:
   parent: 'Node' = None
   cost = 0
   applied_key: Key = None
+  used_keys = defaultdict(int)
 
   f = float('inf')
   
@@ -85,6 +88,7 @@ def generate_successors(node: Node, keys: List[Key], unfair_key: Tuple[int, int]
     successor.cost = node.cost + get_cost(node, k, unfair_key)
     successor.parent = node
     successor.applied_key = k
+    successor.used_keys = deepcopy(node.used_keys)
 
     successors.append(successor)
 
