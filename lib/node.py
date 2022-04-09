@@ -7,6 +7,8 @@ class Node:
   parent: 'Node' = None
   cost = 0
   applied_key: Key = None
+
+  f = float('inf')
   
   def __init__(self, state) -> None:
     self.state = state
@@ -80,7 +82,7 @@ def generate_successors(node: Node, keys: List[Key], unfair_key: Tuple[int, int]
 
   for k in keys:
     successor = apply_key_to_node(node, k, unfair_key)
-    successor.cost += get_cost(node, k, unfair_key)
+    successor.cost = node.cost + get_cost(node, k, unfair_key)
     successor.parent = node
     successor.applied_key = k
 
