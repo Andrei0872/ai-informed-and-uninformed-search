@@ -5,6 +5,7 @@ class Node:
   state: List[int] = []
   parent: 'Node' = None
   cost = 0
+  applied_key: Key = None
   
   def __init__(self, state) -> None:
     self.state = state
@@ -14,6 +15,9 @@ class Node:
 
   def __repr__(self) -> str:
     return str(self.__dict__)
+
+  def get_state_as_str(self):
+    return "".join(map(str, self.state))
 
 def get_cost(node: Node, key: Key, unfair_key: Tuple[int, int]):
   cost = 0
@@ -75,8 +79,13 @@ def generate_successors(node: Node, keys: List[Key], unfair_key: Tuple[int, int]
 
   for k in keys:
     successor = apply_key_to_node(node, k, unfair_key)
+    successor.cost += get_cost(node, k, unfair_key)
+    successor.parent = node
+    successor.applied_key = k
+
     successors.append(successor)
 
-    successor.cost += get_cost(node, k, unfair_key)
+  random.shuffle(successors)
+  return successors
 
   return successors
