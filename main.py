@@ -2,6 +2,7 @@
 from collections import defaultdict
 import os
 from typing import List, Tuple
+from lib.algorithms.astar import a_star, non_admissible_heuristic, v1_heuristic, v2_heuristic
 from lib.algorithms.dfs import dfs
 from lib.algorithms.idfs import incremental_dfs
 from lib.file import DeserializedFile, read_input_files
@@ -67,4 +68,7 @@ if __name__ == "__main__":
 
   # bfs(n, file)
   # dfs(n, file)
-  incremental_dfs(n, file, 5)
+  # incremental_dfs(n, file, 5)
+  # a_star(n, file, v1_heuristic) # !
+  a_star(n, file, v2_heuristic)
+  # a_star(n, file, non_admissible_heuristic)
