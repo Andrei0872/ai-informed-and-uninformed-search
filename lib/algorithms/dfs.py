@@ -16,7 +16,7 @@ def dfs(node: Node, file: DeserializedFile, max_depth = float('inf')) -> str:
     if crt_node.applied_key != None:
       crt_node.used_keys[crt_node.applied_key.value] += 1
 
-      if crt_node.used_keys[crt_node.applied_key.value] > 3:
+      if crt_node.used_keys[crt_node.applied_key.value] > file.key_attempts:
         continue
 
     if is_goal_state(crt_node):
