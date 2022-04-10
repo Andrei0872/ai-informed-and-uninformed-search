@@ -39,7 +39,7 @@ def get_cost(node: Node, key: Key, unfair_key: Tuple[int, int]):
 
   (guilty_idx, affected_idx) = unfair_key
   can_guilty_keyhole_be_unlocked = node.state[guilty_idx] > 0 and key.value[guilty_idx] == 'd'
-  can_affected_keyhole_be_unlocked = key.value[affected_idx] == 'd'
+  can_affected_keyhole_be_unlocked = node.state[affected_idx] > 0 and key.value[affected_idx] == 'd'
   if can_guilty_keyhole_be_unlocked and can_affected_keyhole_be_unlocked:
     # `can_guilty_keyhole_be_unlocked` will lead to the _affected keyhole_ to be locked once more.
     # But, if `can_affected_keyhole_be_unlocked == True`, the previous lock operation will be canceled.
