@@ -6,9 +6,7 @@ from lib.file import DeserializedFile, filter_out_unusable_keys
 
 from lib.node import Node, generate_successors, get_path_until_root, is_goal_state, serialize_path
 
-# TODO: `h` functions
-
-# Ensure `open` is sorted: asc by `f` and if `f1 == f2`, desc by `g`
+# Ensure `open` is sorted: asc by `f` and if `f1 == f2`, desc by `g`.
 def openComparator(node1: Node, node2: Node):
   if node1.f < node2.f:
     return -1
@@ -17,7 +15,7 @@ def openComparator(node1: Node, node2: Node):
     return 1
   
   if node1.f == node2.f:
-    return -1 if node1.cost < node2.cost else 1
+    return -1 if node1.cost > node2.cost else 1
 
 def a_star(start_node: Node, file: DeserializedFile, h_func):
   open: List[Node] = []
@@ -44,7 +42,7 @@ def a_star(start_node: Node, file: DeserializedFile, h_func):
     if crt_node.applied_key != None:
       crt_node.used_keys[crt_node.applied_key.value] += 1
 
-      if crt_node.used_keys[crt_node.applied_key.value] > 3:
+      if crt_node.used_keys[crt_node.applied_key.value] > file.key_attempts:
         continue
 
     is_open_modified = False
@@ -94,7 +92,7 @@ def trivial_heuristic(node: Node, _):
   return 0 if is_goal_state(node) else 1
 
 # Number of keyholes that are still locked(i.e. `keyhole_state > 0`).
-def v1_heuristic(node: Node, _):
+def non_admissible_heuristic(node: Node, _):
   return reduce(lambda nr_locked, keyhole_state: nr_locked + (1 if keyhole_state > 0 else 0), node.state, 0)
 
 def v2_heuristic(node: Node, unfair_key: Tuple[int, int]):
@@ -111,5 +109,5 @@ def v2_heuristic(node: Node, unfair_key: Tuple[int, int]):
 
   return res
 
-def non_admissible_heuristic(node: Node, _):
+def v1_heuristic(node: Node, _):
   return reduce(lambda sum, keyhole_state: sum + keyhole_state, node.state)
