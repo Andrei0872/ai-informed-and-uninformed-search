@@ -7,6 +7,9 @@ from queue import LifoQueue
 from lib.path import Path
 
 def dfs(node: Node, file: DeserializedFile, max_nr_solutions, on_path_found, max_depth = float('inf')):
+  if max_nr_solutions == 0:
+    return
+
   stack = LifoQueue()
 
   stack.put((node, 0))
