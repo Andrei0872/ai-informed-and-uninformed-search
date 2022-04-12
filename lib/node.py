@@ -107,15 +107,3 @@ def get_path_until_root(node: Node) -> List[Tuple[Node, Key]]:
     node = node.parent
 
   return path
-
-def serialize_path(path: List[Tuple[Node, Key]]) -> str:
-  res = ""
-  for i in range(len(path) - 1, -1, -1):
-    (parent, applied_key) = path[i]
-
-    if applied_key != None:
-      res += applied_key.value + "\n"
-
-    res += parent.get_state_as_str() + "\n"
-  
-  return res
