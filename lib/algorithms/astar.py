@@ -4,7 +4,8 @@ from functools import cmp_to_key, reduce
 from typing import List, Tuple
 from lib.file import DeserializedFile, filter_out_unusable_keys
 
-from lib.node import Node, generate_successors, get_path_until_root, is_goal_state, serialize_path
+from lib.node import Node, generate_successors, get_path_until_root, is_goal_state
+from lib.path import Path
 
 # Ensure `open` is sorted: asc by `f` and if `f1 == f2`, desc by `g`.
 def openComparator(node1: Node, node2: Node):
@@ -17,7 +18,7 @@ def openComparator(node1: Node, node2: Node):
   if node1.f == node2.f:
     return -1 if node1.cost > node2.cost else 1
 
-def a_star(start_node: Node, file: DeserializedFile, h_func):
+def a_star(start_node: Node, file: DeserializedFile, h_func, on_path_found):
   open: List[Node] = []
   open_dict = defaultdict()
 
@@ -26,14 +27,18 @@ def a_star(start_node: Node, file: DeserializedFile, h_func):
   open.append(start_node)
   open_dict[start_node.get_state_as_str()] = start_node
 
+  max_nr_nodes_in_memory = -1
+  total_computed_successors = 0
+
   while len(open):
+    max_nr_nodes_in_memory = max(max_nr_nodes_in_memory, len(open))
+
     crt_node = open.pop(0)
     open_dict[start_node.get_state_as_str()] = None
 
     if is_goal_state(crt_node):
       path = get_path_until_root(crt_node)
-      print("cost: {}\n".format(crt_node.cost))
-      print(serialize_path(path), '\n\n')
+      on_path_found(Path(0, path, max_nr_nodes_in_memory, total_computed_successors))
       return
 
     # Marking the current node as `closed`.
@@ -46,7 +51,9 @@ def a_star(start_node: Node, file: DeserializedFile, h_func):
         continue
 
     is_open_modified = False
-    for successor in generate_successors(crt_node, file.keys, file.unfair_key):
+    successors = generate_successors(crt_node, file.keys, file.unfair_key)
+    total_computed_successors += len(successors)
+    for successor in successors:
 
       g = successor.cost
       h = h_func(successor, file.unfair_key)
