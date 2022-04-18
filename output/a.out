@@ -1,0 +1,267 @@
+BFS - unfair key = (0, 3)
+Index: 1
+Length: 4
+Cost: 7
+Found at: 0.009058674000698375
+Max nr. of nodes in memory: 501
+Total nr. of computed successors: 630
+The path: 
+	11111
+	igidd
+	21200
+	ddddg
+	10100
+	ddddg
+	00000
+
+Index: 2
+Length: 4
+Cost: 7
+Found at: 0.010344756999984384
+Max nr. of nodes in memory: 576
+Total nr. of computed successors: 725
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+Index: 3
+Length: 5
+Cost: 8
+Found at: 0.023814691998268245
+Max nr. of nodes in memory: 1336
+Total nr. of computed successors: 1705
+The path: 
+	11111
+	dddgg
+	00021
+	igidd
+	10110
+	ddddg
+	00010
+	ddddg
+	00000
+
+Index: 4
+Length: 5
+Cost: 8
+Found at: 0.025011080000695074
+Max nr. of nodes in memory: 1406
+Total nr. of computed successors: 1795
+The path: 
+	11111
+	dddgg
+	00021
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+
+==================================================
+
+DFS - unfair key = (0, 3)
+Index: 1
+Length: 4
+Cost: 7
+Found at: 0.5655633050009783
+Max nr. of nodes in memory: 25
+Total nr. of computed successors: 36840
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+Index: 2
+Length: 5
+Cost: 8
+Found at: 0.9782955720002064
+Max nr. of nodes in memory: 25
+Total nr. of computed successors: 64010
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	dddgg
+	00010
+	ddddg
+	00000
+
+Index: 3
+Length: 6
+Cost: 10
+Found at: 0.9783631339996646
+Max nr. of nodes in memory: 25
+Total nr. of computed successors: 64015
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	dddgg
+	00010
+	igidd
+	10100
+	ddddg
+	00000
+
+Index: 4
+Length: 7
+Cost: 11
+Found at: 0.9915047870017588
+Max nr. of nodes in memory: 25
+Total nr. of computed successors: 64875
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	dddgg
+	00010
+	igidd
+	10100
+	dddgg
+	00010
+	ddddg
+	00000
+
+
+==================================================
+
+DFI - unfair key = (0, 3)
+Index: 1
+Length: 4
+Cost: 7
+Found at: 0.0007768670002405997
+Max nr. of nodes in memory: 13
+Total nr. of computed successors: 20
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+Index: 2
+Length: 4
+Cost: 7
+Found at: 0.0011171370024385396
+Max nr. of nodes in memory: 13
+Total nr. of computed successors: 45
+The path: 
+	11111
+	igidd
+	21200
+	ddddg
+	10100
+	ddddg
+	00000
+
+Index: 3
+Length: 4
+Cost: 7
+Found at: 0.003150017000734806
+Max nr. of nodes in memory: 16
+Total nr. of computed successors: 40
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+Index: 4
+Length: 5
+Cost: 8
+Found at: 0.0033617500012042
+Max nr. of nodes in memory: 16
+Total nr. of computed successors: 55
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	dddgg
+	00010
+	ddddg
+	00000
+
+
+==================================================
+
+A* - v1 heuristic - unfair key = (0, 3)
+Index: 1
+Length: 4
+Cost: 7
+Found at: 0.0003892960012308322
+Max nr. of nodes in memory: 14
+Total nr. of computed successors: 25
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+
+==================================================
+
+A* - v2 heuristic - unfair key = (0, 3)
+Index: 1
+Length: 4
+Cost: 7
+Found at: 0.00037214600160950795
+Max nr. of nodes in memory: 14
+Total nr. of computed successors: 25
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+
+==================================================
+
+A* - non-admissible heuristic - unfair key = (0, 3)
+Index: 1
+Length: 4
+Cost: 7
+Found at: 0.002100041998346569
+Max nr. of nodes in memory: 50
+Total nr. of computed successors: 130
+The path: 
+	11111
+	ddddg
+	00011
+	igidd
+	10100
+	ddddg
+	00000
+
+
+==================================================
+

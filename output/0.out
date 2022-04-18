@@ -1,0 +1,34 @@
+BFS - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+
+DFS - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+
+DFI - unfair key = (0, 5)
+
+==================================================
+
+A* - v1 heuristic - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+
+A* - v2 heuristic - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+
+A* - non-admissible heuristic - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+

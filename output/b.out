@@ -1,0 +1,95 @@
+BFS - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+
+DFS - unfair key = (0, 5)
+Timeout exceeded.
+
+
+==================================================
+
+DFI - unfair key = (0, 5)
+
+==================================================
+
+A* - v1 heuristic - unfair key = (0, 5)
+Index: 1
+Length: 7
+Cost: 12
+Found at: 0.0076017350002075545
+Max nr. of nodes in memory: 149
+Total nr. of computed successors: 384
+The path: 
+	1111111
+	ggddggd
+	1100110
+	ggdggdd
+	1100100
+	ddiiggg
+	0011110
+	dgiddig
+	0020020
+	ggdggdd
+	0010010
+	ggdggdd
+	0000000
+
+
+==================================================
+
+A* - v2 heuristic - unfair key = (0, 5)
+Index: 1
+Length: 7
+Cost: 12
+Found at: 0.004657478999433806
+Max nr. of nodes in memory: 105
+Total nr. of computed successors: 256
+The path: 
+	1111111
+	ggddggd
+	1100110
+	ggdggdd
+	1100100
+	ddiiggg
+	0011110
+	dgiddig
+	0020020
+	ggdggdd
+	0010010
+	ggdggdd
+	0000000
+
+
+==================================================
+
+A* - non-admissible heuristic - unfair key = (0, 5)
+Index: 1
+Length: 9
+Cost: 14
+Found at: 1.7817140570004995
+Max nr. of nodes in memory: 3347
+Total nr. of computed successors: 16824
+The path: 
+	1111111
+	ggddggd
+	1100110
+	ggdggdd
+	1100100
+	ddiiggg
+	0011110
+	ddiiggg
+	0022110
+	dgiddig
+	0031020
+	ggdggdd
+	0021010
+	ggddggd
+	0010010
+	ggdggdd
+	0000000
+
+
+==================================================
+
