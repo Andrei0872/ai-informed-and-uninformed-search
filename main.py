@@ -6,7 +6,7 @@ import os
 import signal
 from time import perf_counter
 from typing import List, Tuple
-from lib.algorithms.astar import a_star, non_admissible_heuristic, v1_heuristic, v2_heuristic
+from lib.algorithms.astar import a_star, non_admissible_heuristic, trivial_heuristic, v1_heuristic, v2_heuristic
 from lib.algorithms.dfs import dfs
 from lib.algorithms.idfs import incremental_dfs
 from lib.file import DeserializedFile, read_input_files
@@ -75,6 +75,7 @@ def run_algorithms(cfg: Config, files: List[DeserializedFile]):
     ("A* - v1 heuristic", lambda starting_node, file: lambda: a_star(starting_node, file, v1_heuristic, on_path_found)),
     ("A* - v2 heuristic", lambda starting_node, file: lambda: a_star(starting_node, file, v2_heuristic, on_path_found)),
     ("A* - non-admissible heuristic", lambda starting_node, file: lambda: a_star(starting_node, file, non_admissible_heuristic, on_path_found)),
+    ("A* - trivial heuristic", lambda starting_node, file: lambda: a_star(starting_node, file, trivial_heuristic, on_path_found)),
   ]
 
   output_dir = os.path.join(os.getcwd(), cfg.output_dir)

@@ -18,7 +18,7 @@ A* - v1 heuristic - unfair key = (0, 5)
 Index: 1
 Length: 7
 Cost: 12
-Found at: 0.0076017350002075545
+Found at: 0.007181020999269094
 Max nr. of nodes in memory: 149
 Total nr. of computed successors: 384
 The path: 
@@ -43,7 +43,7 @@ A* - v2 heuristic - unfair key = (0, 5)
 Index: 1
 Length: 7
 Cost: 12
-Found at: 0.004657478999433806
+Found at: 0.0045818949984095525
 Max nr. of nodes in memory: 105
 Total nr. of computed successors: 256
 The path: 
@@ -68,7 +68,7 @@ A* - non-admissible heuristic - unfair key = (0, 5)
 Index: 1
 Length: 9
 Cost: 14
-Found at: 1.7817140570004995
+Found at: 1.6594917500005977
 Max nr. of nodes in memory: 3347
 Total nr. of computed successors: 16824
 The path: 
@@ -89,6 +89,12 @@ The path:
 	0010010
 	ggdggdd
 	0000000
+
+
+==================================================
+
+A* - trivial heuristic - unfair key = (0, 5)
+Timeout exceeded.
 
 
 ==================================================
