@@ -17,7 +17,7 @@ class Path:
     self.total_computed_successors = total_computed_successors
 
   def __str__(self) -> str:
-    res = "Index: {}\n".format(self.path_idx)
+    res = "Index: {}\n".format(self.path_idx + 1)
     res += "Length: {}\n".format(self.length)
     res += "Cost: {}\n".format(self.cost)
     res += "Found at: {}\n".format(self.found_at)
@@ -34,6 +34,9 @@ class Path:
       res += "\t" + parent.get_state_as_str() + "\n"
 
     return res
+
+  def __repr__(self) -> str:
+    return str(self)
 
   @property
   def cost(self):
