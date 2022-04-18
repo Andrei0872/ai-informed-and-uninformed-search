@@ -96,7 +96,7 @@ def run_algorithms(cfg: Config, files: List[DeserializedFile]):
       except:
         paths.append("Timeout exceeded.\n")
 
-      output_file.write(alg_name + "\n")
+      output_file.write("{} - unfair key = ({}, {})\n".format(alg_name, file.unfair_key[0], file.unfair_key[1]))
       
       for p in paths:
         output_file.write(str(p) + "\n")
